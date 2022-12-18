@@ -40,7 +40,6 @@ export const CreateDialog = (props: CreateDialogProps) => {
         return validateStartDate || validateEndDate
       })
 
-      console.log('found:', found)
       if (found) {
         errorMessages.current?.replace([
           {
@@ -80,11 +79,7 @@ export const CreateDialog = (props: CreateDialogProps) => {
   }
 
   return (
-    <Dialog
-      visible={props.show}
-      showHeader={false}
-      onHide={() => console.log('hide')}
-    >
+    <Dialog visible={props.show} showHeader={false} onHide={() => clearForm()}>
       <div className="flex flex-row align-items-center justify-content-between ml-1 my-3">
         <div className="flex flex-row align-items-center">
           <i className="fa-solid fa-file-signature fa-2x"></i>

@@ -2,7 +2,6 @@ import dateFormat from 'dateformat'
 import { Button } from 'primereact/button'
 import { Column } from 'primereact/column'
 import { DataTable } from 'primereact/datatable'
-import { useEffect } from 'react'
 import { useAppDispatch } from '../../hooks/useDispatch'
 import { Fee } from '../../models/fee.model'
 import { changeMode, fetchFees } from '../../redux/reducers/fees.reducer'
@@ -14,10 +13,6 @@ export interface FeesViewProps {
 
 export const FeesView = (props: FeesViewProps) => {
   const dispatch = useAppDispatch()
-
-  useEffect(() => {
-    console.log('fees:', props.fees)
-  }, [props.fees])
 
   const header = (
     <div className="flex align-items-center justify-content-between gap-2">

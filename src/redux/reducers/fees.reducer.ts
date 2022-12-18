@@ -17,9 +17,7 @@ const initialState: State = {
 }
 
 export const fetchFees = createAsyncThunk('get_fees_list', async () => {
-  console.log('fetch fees')
   const fees = await invoke<Fee[]>('get_fees_list')
-  console.log('fetched fees:', fees)
   return fees
 })
 
@@ -64,11 +62,9 @@ export const feesSlice = createSlice({
       })
 
       .addCase(deleteFee.fulfilled, (state) => {
-        console.log('delete_fee: fulfilled')
         state.mode = 'list'
       })
       .addCase(deleteFee.rejected, (state, action) => {
-        console.log('delete_fee rejected', action.error.message)
         state.error = {
           summary: 'Gebührendaten konnte nicht gelöscht werden',
           detail: action.error.message,
